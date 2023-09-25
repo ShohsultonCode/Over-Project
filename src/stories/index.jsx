@@ -1,10 +1,15 @@
 import { configureStore } from "@reduxjs/toolkit";
 import userData from "./userData";
+import postData from "./postData";
+import registerData from "./register";
 
-const hello = configureStore({
+const attemts = configureStore({
     reducer: {
-        userData
+        userData: userData,
+        postData: postData,
+        registerData: registerData
+
     }
 })
 
-export default hello
+export default attemts

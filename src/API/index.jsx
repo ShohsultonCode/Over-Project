@@ -1,5 +1,4 @@
-export const serverHost = "https://f712-84-54-72-144.ngrok-free.app"
-
+export const serverHost = "http://localhost:7000/api"
 class Server {
     constructor(host) {
         this.serverHost = host
@@ -13,6 +12,19 @@ class Server {
 
     async overSearch(value) {
         const data = await this.fetch("/filter/search", { method: "POST", body: JSON.stringify({ value }), headers: { 'Content-Type': 'application/json' } })
+        return data
+    }
+
+    async register(value) {
+        const data = await this.fetch("/auth/register", { method: "POST", body: JSON.stringify(value), headers: { 'Content-Type': 'application/json' } })
+        return data
+    }
+    async login(value) {
+        const data = await this.fetch("/auth/login", { method: "POST", body: JSON.stringify({ value }), headers: { 'Content-Type': 'application/json' } })
+        return data
+    }
+    async getPosts(value) {
+        const data = await this.fetch("/blogs", { method: "GET", headers: { 'Content-Type': 'application/json' } })
         return data
     }
 }
